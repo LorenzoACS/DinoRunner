@@ -12,7 +12,7 @@ class Coin(pygame.sprite.Sprite):
 # Extracting all modes of character from spritesheet. (Walking, running, jumping, etc.)
 def addAllAnimations():
 	global animations
-	sprite_sheet_image = pygame.image.load('./Runner/doux.png').convert_alpha()
+	sprite_sheet_image = pygame.image.load('./Pygame/DinoRunner/doux.png').convert_alpha()
 	sprite_sheet = spritesheet.SpriteSheet(sprite_sheet_image)
 	stepCounter = 0 
 	animationSteps = [4, 6, 3, 4, 7]
@@ -29,7 +29,7 @@ def gameScreen():
 	gameActive = True
 	fontType = 'snapitc'
 	fontSize = 64
-	background = pygame.image.load('./Runner/grass.jpg')
+	background = pygame.image.load('./Pygame/DinoRunner/grass.jpg')
 	scoreFont = pygame.font.SysFont(fontType, fontSize)
 	scoreText = scoreFont.render('Score: ' + str(score), True, pygame.Color('red'))
 	storeFont = pygame.font.SysFont(fontType, fontSize)
@@ -42,7 +42,7 @@ def gameScreen():
 def homeScreen():
 	global SCREEN_WIDTH
 	global SCREEN_HEIGHT
-	background = pygame.image.load('./Runner/grass.jpg')
+	background = pygame.image.load('./Pygame/DinoRunner/grass.jpg')
 	fontType = 'snapitc'
 	fontSize = 128
 	titleScreen = pygame.Surface((SCREEN_WIDTH, SCREEN_WIDTH))
@@ -130,7 +130,7 @@ def coinFrames():
 		if coinCollision():
 			activeCoin = False
 			score += 100 * dinoCounter 
-			collision_sound = mixer.Sound('./Runner/coinsound.mp3')
+			collision_sound = mixer.Sound('./Pygame/DinoRunner/coinsound.wav')
 			collision_sound.play()
 			collision_sound.set_volume(.15)
 
@@ -239,6 +239,6 @@ if __name__ == '__main__':
 	SCREEN_HEIGHT = 720
 	screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 	pygame.display.set_caption('Dino Runner')
-	IMAGE = pygame.image.load('./Runner/coin128.png').convert_alpha()
+	IMAGE = pygame.image.load('./Pygame/DinoRunner/coin128.png').convert_alpha()
 	addAllAnimations()
 	main()
